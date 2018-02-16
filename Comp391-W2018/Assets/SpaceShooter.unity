@@ -113,6 +113,34 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &862913541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 862913542}
+  m_Layer: 0
+  m_Name: ShotSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &862913542
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 862913541}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1268804986}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &936093621
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +225,7 @@ GameObject:
   - component: {fileID: 1268804985}
   - component: {fileID: 1268804988}
   - component: {fileID: 1268804987}
+  - component: {fileID: 1268804989}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -255,9 +284,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1268804984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9541626, y: 0.41909975, z: 0}
+  m_LocalPosition: {x: -6.38, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 862913542}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -280,7 +310,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1268804988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,7 +322,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9dad4a76eabe348b515db2818319aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
+  nextFire: 0.25
+  boundary:
+    xMin: -8.5
+    xMax: 3
+    yMin: -4
+    yMax: 4
+  laser: {fileID: 1884649972047956, guid: 868a71e9b7fb4cf47b11ff808910306f, type: 2}
+  laserSpawn: {fileID: 862913542}
+--- !u!60 &1268804989
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1268804984}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.98, y: 0.99}
+    newSize: {x: 7.2, y: 7.13}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.01, y: -0.235}
+      - {x: 0.21, y: -0.16499999}
+      - {x: 0.45999998, y: -0.055}
+      - {x: 0.45999998, y: 0.005}
+      - {x: 0.4225486, y: 0.04929373}
+      - {x: 0.35032314, y: 0.087823786}
+      - {x: 0.20602593, y: 0.14372571}
+      - {x: 0.04880222, y: 0.13553853}
+      - {x: -0.04446803, y: 0.20902413}
+      - {x: -0.003456924, y: 0.22769348}
+      - {x: -0.06532967, y: 0.32076043}
+      - {x: -0.16361126, y: 0.3327278}
+      - {x: -0.24, y: 0.49499997}
+      - {x: -0.35999998, y: 0.49499997}
+      - {x: -0.33425424, y: 0.32988885}
+      - {x: -0.4017363, y: 0.3106527}
+      - {x: -0.40586814, y: 0.2435868}
+      - {x: -0.3948848, y: 0.225}
+      - {x: -0.31632966, y: 0.21349086}
+      - {x: -0.31552806, y: 0.09848795}
+      - {x: -0.36045536, y: 0.18855613}
+      - {x: -0.4274424, y: 0.18471809}
+      - {x: -0.45, y: 0.195}
+      - {x: -0.48999998, y: 0.105}
+      - {x: -0.48999998, y: -0.105}
+      - {x: -0.48, y: -0.125}
+      - {x: -0.42999998, y: -0.305}
+      - {x: -0.35, y: -0.48499998}
+      - {x: -0.35, y: -0.49499997}
+      - {x: -0.25, y: -0.49499997}
+      - {x: -0.22999999, y: -0.475}
+      - {x: -0.049999997, y: -0.33499998}
+      - {x: 0, y: -0.255}
 --- !u!1 &1620755454
 GameObject:
   m_ObjectHideFlags: 0
