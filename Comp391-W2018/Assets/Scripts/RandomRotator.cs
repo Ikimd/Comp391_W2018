@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class RandomRotator : MonoBehaviour {
 
-    private Rigidbody2D rBody;
-
     public float tumble;
 
+    private Rigidbody2D rBody;
+
 	// Use this for initialization
-	void Start ()
-    {
+	void Start () {
         rBody = this.GetComponent<Rigidbody2D>();
         rBody.angularVelocity = Random.value * tumble;
-
 	}
-
-	
 }
